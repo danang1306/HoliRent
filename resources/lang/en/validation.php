@@ -130,9 +130,14 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'email' => [
+            'required' => 'Harap Masukkan Email Anda',
         ],
+        'pass' => [
+            'required' => 'Harap Masukkan Password Anda',
+            'confirmed' => 'Password Tidak Sama, mohon masukkan kembali'
+        ],
+
     ],
 
     /*

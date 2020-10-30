@@ -30,4 +30,5 @@
 	
    @yield('linkjs')
 </body>
+@yield('jscode')
 </html>

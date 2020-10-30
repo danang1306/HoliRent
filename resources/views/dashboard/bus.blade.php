@@ -42,7 +42,7 @@
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
-						<table class="table table-head-bg-primary table-bordered table-hover text-center mt-4">
+						<table class="table table-head-bg-secondary table-bordered table-hover text-center mt-4">
 							<thead>
 								<tr>
 									<th scope="col">Kode</th>
@@ -76,52 +76,90 @@
     </div>
 </div>
 <!-- Modal -->
-					<div class="modal fade" id="addRowModal" tabindex="-1" role="dialog" aria-hidden="true">
-						<div class="modal-dialog" role="document">
-						    <div class="modal-content">
-								<div class="modal-header no-bd">
-									<h5 class="modal-title">
-									    <span class="fw-mediumbold">
-											New</span> 
-										<span class="fw-light">
-											Row
-										</span>
-									</h5>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										<span aria-hidden="true">&times;</span>
-									</button>
-								</div>
-								<div class="modal-body">
-									<p class="small">Create a new row using this form, make sure you fill them all</p>
-									<form>
-									    <div class="row">
-											<div class="col-sm-12">
-												<div class="form-group form-group-default">
-													<label>Name</label>
-													<input id="addName" type="text" class="form-control" placeholder="fill name">
-												</div>
-											</div>
-											<div class="col-md-6 pr-0">
-												<div class="form-group form-group-default">
-												    <label>Position</label>
-												    <input id="addPosition" type="text" class="form-control" placeholder="fill position">
-											    </div>
-											</div>
-											<div class="col-md-6">
-												<div class="form-group form-group-default">
-														<label>Office</label>
-														<input id="addOffice" type="text" class="form-control" placeholder="fill office">
-												</div>
-											</div>
-										</div>
-									</form>
-								</div>
-								<div class="modal-footer no-bd">
-									<button type="button" id="addRowButton" class="btn btn-primary">Add</button>
-									<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+	<div class="modal fade" id="addRowModal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header no-bd">
+					<h5 class="modal-title">
+						<span class="fw-mediumbold">
+							New</span> 
+						<span class="fw-light">
+							Row
+						</span>
+					</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<form>
+					<div class="modal-body">
+						<div class="row">
+							@csrf
+							<div class="col-md-12">
+								<div class="form-group" style="padding:5px 0px">
+									<label>Plat Nomor</label>
+									<input  type="text" class="form-control" name="plat">
+									@error('plat')
+									<small class="form-text text-muted">{{$message}}</small>
+									@enderror
 								</div>
 							</div>
+							<div class="col-md-12">
+								<div class="form-group" style="padding:5px 0px">
+									<label>Name</label>
+									<input  type="text" class="form-control" name="namebus">
+									@error('name')
+									<small class="form-text text-muted">{{$message}}</small>
+									@enderror
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="form-group" style="padding:5px 0px">
+									<label class="form-label">Type Bus</label>
+									<div class="selectgroup w-100">
+										<label class="selectgroup-item">
+											<input type="radio" name="tipe" value="HD" class="selectgroup-input" checked="">
+											<span class="selectgroup-button">HD</span>
+										</label>
+										<label class="selectgroup-item">
+											<input type="radio" name="tipe" value="NonHD" class="selectgroup-input">
+											<span class="selectgroup-button">NonHD</span>
+										</label>
+										<label class="selectgroup-item">
+											<input type="radio" name="tipe" value="SHD" class="selectgroup-input">
+											<span class="selectgroup-button">SHD</span>
+										</label>
+										<label class="selectgroup-item">
+											<input type="radio" name="tipe" value="DD" class="selectgroup-input">
+											<span class="selectgroup-button">DD</span>
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="form-group" style="padding:5px 0px">
+									<label>Harga</label>
+									<input  type="number" class="form-control" name="harga">
+									@error('harga')
+									<small class="form-text text-muted">{{$message}}</small>
+									@enderror
+								</div>
+							</div>
+							<div class="col-md-12" style="padding:5px 0px">
+								<div class="form-group">
+									<label for="">Masukkan Gambar</label>
+									<input type="file" class="form-control-file" name="gambar">
+								</div>
+							</div>	
 						</div>
 					</div>
-                    <!-- EndModal -->
+					<div class="modal-footer no-bd">
+						<button type="submit" class="btn btn-primary">Add</button>
+						<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+<!-- EndModal -->
 @endsection

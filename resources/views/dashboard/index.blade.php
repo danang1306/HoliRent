@@ -8,34 +8,66 @@
 			<div class="content">
 					<div class="page-inner">
 						<div class="mt-2 mb-4">
-							<h2 class="pb-2">Welcome back, Andryan!</h2>
+							<h2 class="pb-2">Welcome back,
+							{{ $name }}
+							</h2>
 							<h5 class="op-7 mb-4">Do Your Best Think today,cause u dont know u can even do that tommorow.</h5>
 						</div>
 						<div class="row">
-							<div class="col-md-4">
-								<div class="card card-dark bg-primary-gradient">
-									<div class="card-body pb-0">
-										<div class="h1 fw-bold float-right">+5%</div>
-										<h2 class="mb-2">17</h2>
-										<p>Users online</p>
+							<div class="col-md-4 ">
+								<div class="card card-stats card-round">
+									<div class="card-body ">
+										<div class="row align-items-center">
+											<div class="col-icon">
+												<div class="icon-big text-center icon-primary bubble-shadow-small">
+													<i class="fa fa-users"></i>
+												</div>
+											</div>
+											<div class="col col-stats ml-3 ml-sm-0">
+												<div class="numbers">
+													<p class="card-category">Users</p>
+													<h4 class="card-title">100</h4>
+												</div>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
 							<div class="col-md-4">
-								<div class="card card-dark bg-secondary-gradient">
-									<div class="card-body pb-0">
-										<div class="h1 fw-bold float-right">-3%</div>
-										<h2 class="mb-2">27</h2>
-										<p>New Users</p>
+								<div class="card card-stats card-round">
+									<div class="card-body ">
+										<div class="row align-items-center">
+											<div class="col-icon">
+												<div class="icon-big text-center icon-secondary bubble-shadow-small">
+													<i class="fa fa-bus"></i>
+												</div>
+											</div>
+											<div class="col col-stats ml-3 ml-sm-0">
+												<div class="numbers">
+													<p class="card-category">Bus</p>
+													<h4 class="card-title">1293</h4>
+												</div>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
 							<div class="col-md-4">
-								<div class="card card-dark bg-success2">
-									<div class="card-body pb-0">
-										<div class="h1 fw-bold float-right">+7%</div>
-										<h2 class="mb-2">213</h2>
-										<p>Transactions</p>
+								<div class="card card-stats card-round">
+									<div class="card-body ">
+										<div class="row align-items-center">
+											<div class="col-icon">
+												<div class="icon-big text-center icon-success bubble-shadow-small">
+													<i class="far fa-chart-bar"></i>
+												</div>
+											</div>
+											<div class="col col-stats ml-3 ml-sm-0">
+												<div class="numbers">
+													<p class="card-category">Transaksi</p>
+													<h4 class="card-title">423.123</h4>
+												</div>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>

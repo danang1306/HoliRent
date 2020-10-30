@@ -18,7 +18,7 @@
 					</div>
 					<ul class="nav nav-primary">
 						<li class="nav-item active">
-							<a data-toggle="collapse" href="#dashboard" class="collapsed" aria-expanded="false">
+							<a href="{{ route('dashboard') }}">
 								<i class="fas fa-home"></i>
 								<p>Dashboard</p>
 							</a>
@@ -38,12 +38,12 @@
 							<div class="collapse" id="Bus">
 								<ul class="nav nav-collapse">
 									<li>
-										<a href="{{url('dashboard/bus')}}">
+										<a href="{{ route('dashboard.bus') }}">
 											<span class="sub-item">Bus</span>
 										</a>
 									</li>
 									<li>
-										<a href="{{url('dashboard/user')}}">
+										<a href="{{ route('dashboard.user') }}">
 											<span class="sub-item">User</span>
 										</a>
 									</li>
@@ -67,4 +67,4 @@
 			</div>
 		</div>
 		<!-- End Sidebar -->
-        @endsection
+		@endsection

@@ -36,7 +36,30 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $name = $request->name;
+        $namebelakang = $request->namebelakang;
+        $email = $request->email;
+        $password = $request->pass;
+        $role = $request->role;
+        
+        
+        $request->validate([
+            'name' => 'required',
+            'namebelakang' => 'nullable',
+            'pass' => 'required|alpha_dash|min:7|confirmed',
+            'email' => 'unique:App\User,email|required'
+        ]);
+        
+        User::create
+        ([
+            'name' => $name." ".$namebelakang,
+            'email' => $email,
+            'password' => $password,
+            'role' => $role
+        ]);
+
+        return redirect()->route('dashboard.user')->with('insert','Data Berhasil Tersimpan');
+
     }
 
     /**
@@ -53,24 +76,51 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\User
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        return view('dashboard/user-edit',['data' => $user]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\User
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,User $user)
     {
-        //
+        
+        $name = $request->username;
+        $email = $request->email;
+        $password = $request->password;
+        $role = $request->role;
+
+        $request->validate([
+            'username' => 'required',
+            'password' => 'required|alpha_dash|min:7',
+            'role' => 'required'
+        ]);
+
+        $update = User::where('id', $user->id)
+        ->update([
+         'name' => $name,
+         'email' => $email,
+         'password' => $password,
+         'role' => $role,
+        ]);
+
+        if($update){
+            return redirect()->route('dashboard.user')->with('edit','Data berhasil di Edit');
+        }
+        else{
+            return redirect()->route('dashboard.user');
+        }
+
+        
     }
 
     /**
@@ -80,7 +130,8 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        //
+    { 
+        User::destroy($id);
+        return redirect()->route('dashboard.user')->with('delete','Data Berhasil Dihapus');
     }
 }

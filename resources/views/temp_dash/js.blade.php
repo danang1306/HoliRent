@@ -11,9 +11,6 @@
 	<!-- jQuery Scrollbar -->
 	<script src="/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
 
-	<!-- Datatables -->
-	<script src="/assets/js/plugin/datatables/datatables.min.js"></script>
-
 	<!-- Sweet Alert -->
 	<script src="/assets/js/plugin/sweetalert/sweetalert.min.js"></script>
 
